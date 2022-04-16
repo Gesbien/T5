@@ -66,12 +66,56 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	fmt.Println(" Reporte Libros ")
+	fmt.Println(" Reporte de Libros ")
 	fmt.Println()
 	control.JLoginGET(config.Server, config.User)
-	control.JBook(config.Server, tab[0])
-	control.JAuth(config.Server, tab[1])
-	control.JEdit(config.Server, tab[2])
-	control.JLang(config.Server, tab[3])
-	fmt.Println()
+
+	fmt.Println("Libros con Autor: ", tab[1])
+	list := control.JAuth(config.Server, tab[1])
+	for i := 0; i < len(list); i++ {
+		fmt.Println(list[i].Author)
+		fmt.Println(list[i].Title)
+		fmt.Println(list[i].Year)
+		fmt.Println(list[i].Comment)
+		fmt.Println(list[i].Year)
+		fmt.Println(list[i].Editor)
+		fmt.Println()
+	}
+
+	fmt.Println("Libros con Titulo: ", tab[0])
+	list = control.JBook(config.Server, tab[0])
+	for i := 0; i < len(list); i++ {
+		fmt.Println(list[i].Author)
+		fmt.Println(list[i].Title)
+		fmt.Println(list[i].Year)
+		fmt.Println(list[i].Comment)
+		fmt.Println(list[i].Year)
+		fmt.Println(list[i].Editor)
+		fmt.Println()
+	}
+
+	fmt.Println("Libros con Editora: ", tab[2])
+	list = control.JEdit(config.Server, tab[2])
+	for i := 0; i < len(list); i++ {
+		fmt.Println(list[i].Author)
+		fmt.Println(list[i].Title)
+		fmt.Println(list[i].Year)
+		fmt.Println(list[i].Comment)
+		fmt.Println(list[i].Year)
+		fmt.Println(list[i].Editor)
+		fmt.Println()
+	}
+
+	fmt.Println("Libros con Idioma: ", tab[3])
+	list = control.JLang(config.Server, tab[3])
+	for i := 0; i < len(list); i++ {
+		fmt.Println(list[i].Author)
+		fmt.Println(list[i].Title)
+		fmt.Println(list[i].Year)
+		fmt.Println(list[i].Comment)
+		fmt.Println(list[i].Year)
+		fmt.Println(list[i].Editor)
+		fmt.Println()
+	}
+
 }
